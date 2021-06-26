@@ -56,3 +56,7 @@ console.log(result)
  *
  * /
 ```
+
+## License
+
+Copyright (c) 2021 Leo Huynh @ [https://leohuynh.dev](https://leohuynh.dev) under [MIT LICENSE](/LICENSE.md)
