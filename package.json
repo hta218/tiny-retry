@@ -5,6 +5,7 @@
   "main": "retry.js",
   "scripts": {
 		"build": "webpack --mode production",
+		"prepublish": "npm run build",
     "test": "node ./src/test.js"
   },
   "repository": {
