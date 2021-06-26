@@ -6,7 +6,9 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     filename: 'retry.js',
+    library: 'tiny-retry',
     libraryTarget: 'umd',
+		globalObject: 'this'
   },
   module: {
     rules: [

@@ -5,7 +5,7 @@
   "main": "retry.js",
   "scripts": {
 		"build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./src/test.js"
   },
   "repository": {
     "type": "git",
