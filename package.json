@@ -4,6 +4,7 @@
   "description": "Tiny module to retry an ansync job ultil the job success or stop after maximum number of retry",
   "main": "retry.js",
   "scripts": {
+		"build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
