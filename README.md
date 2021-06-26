@@ -51,6 +51,38 @@ console.log(result)
 // If job failed: { success: false }
 ```
 
+## Example
+
+[Codesandbox demo](https://codesandbox.io/s/test-tiny-retry-pjbqs?file=/src/index.js:0-1198)
+
+```javascript
+import retry from "tiny-retry";
+
+const wait = (secs) => new Promise((resolve) => setTimeout(resolve, secs));
+
+let count = 1;
+const fakeJobThatDoneAfter5Tries = async () => {
+  await wait(2000);
+  if (count >= 5) {
+    console.log("Job done!");
+    return "Job data";
+  } else {
+    count += 1;
+    throw new Error("Job failed!");
+  }
+};
+
+(async () => {
+  console.log("Start Job 1");
+  console.time("JOB_COST");
+  const result1 = await retry(fakeJobThatDoneAfter5Tries, 8, 1000, 1000);
+  console.log("Job 1 result: ", result1);
+  console.log("Time expect: 1 + 2 * 5 + 1 * (5 - 1) = 15s");
+  console.timeEnd("JOB_COST"); // Expect: 15s
+})();
+
+```
+
 ## License
 
 Copyright (c) 2021 Leo Huynh @ [https://leohuynh.dev](https://leohuynh.dev) under [MIT LICENSE](/LICENSE.md)
