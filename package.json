@@ -1,7 +1,7 @@
 {
   "name": "tiny-retry",
   "version": "1.0.0",
-  "description": "Tiny module to retry an ansync job ultil the job success or stop after maximum number of retry",
+  "description": "Tiny module to retry an async job until the job success or stop after a maximum number of retries",
   "main": "retry.js",
   "scripts": {
 		"build": "webpack --mode production",
@@ -15,7 +15,8 @@
   "keywords": [
     "retry",
     "tiny-module",
-    "tiny-retry"
+    "tiny-retry",
+    "pure-js"
   ],
   "author": "Leo Huynh @ https://leohuynh.dev",
   "license": "MIT",
