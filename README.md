@@ -1,6 +1,6 @@
-## Tiny retry JS
+# Tiny retry JS 👷
 
-A lightweight function (only **360bytes**) that retry an async job until the job success or stop after a maximum number of retries
+A lightweight function (only **360bytes** ✨) that retry an async job until the job success or stop after a maximum number of retries
 
 ![package size](https://i.imgur.com/pBlMS7b.png)
 
@@ -25,7 +25,7 @@ A lightweight function (only **360bytes**) that retry an async job until the job
 		// Do something with job data
 		console.log(result.data)
 	} else {
-		// Do other things
+		// Do other thing
 	}
 	```
 
@@ -40,21 +40,15 @@ const result = await retry(asyncJob, maxRetries, delay, starAfter);
 - `delay`: the number in miliseconds of time after between each retries
 - `starAfter`: the number in miliseconds to start the 1st try
 
-## Returned value
+## Return value
 
 - `result`: Object - represent the value of the job done or not and include job's data (if job return)
 
 ```javascript
 console.log(result)
 
-/**
- * Job run success
- * { success: true, data: "Async job data" }
- *
- * Job failed
- * { success: false }
- *
- * /
+// Expect: { success: true, data: "Async job data" }
+// If job failed: { success: false }
 ```
 
 ## License
