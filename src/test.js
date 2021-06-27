@@ -26,6 +26,7 @@ const fakeJobThatDoneAfter10Tries = async () => {
 };
 
 (async () => {
+	console.log('Try job 1...')
 	console.time('JOB_1_COST')
 	const result1 = await retry(fakeJobThatDoneAfter5Tries, 8, 1000, 1000)
 	console.log('Job 1 result: ', result1)
@@ -33,6 +34,7 @@ const fakeJobThatDoneAfter10Tries = async () => {
 	console.timeEnd('JOB_1_COST')
 
 	console.log('\n****************************')
+	console.log('Try job 2...')
 	console.time('JOB_2_COST')
 	const result2 = await retry(fakeJobThatDoneAfter10Tries, 8, 1000, 1000)
 	console.log('Job 2 result: ', result2)

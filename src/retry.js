@@ -32,7 +32,7 @@ module.exports = async function retry(asyncJob, maxRetries = 10, delay = 1000, s
 				} else {
 					retryCount += 1
 					await wait(delay)
-					fn()
+					await fn()
 				}
 			}
 		}
