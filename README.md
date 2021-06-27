@@ -47,8 +47,8 @@ const result = await retry(asyncJob, maxRetries, delay, starAfter);
 ```javascript
 console.log(result)
 
-// Expect: { success: true, data: "Async job data" }
-// If job failed: { success: false }
+// Expect: { success: true, data: "Async job data", retryCount }
+// If job failed: { success: false, retryCount }
 ```
 
 ## Example

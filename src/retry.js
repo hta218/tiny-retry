@@ -14,7 +14,7 @@ const wait = require('./wait')
  * @param {Number}   		[maxRetries=10]     	Maximum times to retry job.
  * @param {Number}   		[delay=1000] 			Time after between each retries in ms.
  * @param {Number}   		[startAfter=0] 			Time to start the 1st try in ms.
-
+ *
  * @return {Promise<Result>} 						A promise that contains job data when fulfilled
  */
 
