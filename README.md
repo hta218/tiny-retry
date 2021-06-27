@@ -1,8 +1,8 @@
 # Tiny retry JS 👷
 
-A lightweight function (only **360bytes** ✨) that retry an async job until the job success or stop after a maximum number of retries
+A lightweight function (**370bytes** ✨) that retry an async job until the job success or stop after a maximum number of retries
 
-![package size](https://i.imgur.com/pBlMS7b.png)
+![package size](https://i.imgur.com/bvJgy4D.png)
 
 ## Usage
 
