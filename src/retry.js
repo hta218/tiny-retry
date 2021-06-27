@@ -25,10 +25,10 @@ module.exports = async function retry(asyncJob, maxRetries = 10, delay = 1000, s
 		async function fn() {
 			try {
 				const data = await asyncJob()
-				resolve({ success: true, data })
+				resolve({ success: true, retryCount, data })
 			} catch (err) {
 				if (retryCount >= maxRetries) {
-					resolve({ success: false })
+					resolve({ success: false, retryCount })
 				} else {
 					retryCount += 1
 					await wait(delay)
