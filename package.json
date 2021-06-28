@@ -1,6 +1,6 @@
 {
   "name": "tiny-retry",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Lightweight function to retry an async job until the job success or stop after a maximum number of retries",
   "main": "dist/retry.js",
   "scripts": {
