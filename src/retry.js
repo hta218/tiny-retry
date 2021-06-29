@@ -17,7 +17,7 @@ const wait = require('./wait')
  * @param {Number}   		[options.startAfter=0] 			Time to start the 1st try in ms.
  * @param {Function}   		[options.process=void] 			A process function to run before each try with the "tries" count argument
  * @param {Function}   		[options.errorHandler=void] 			A function to handle error in each try with the "err" argument
- * @param {Function}   		[options.check=void] 			A function with the job reponse argument to verify whether the job response is expected or not (throw an error if not)
+ * @param {Function}   		[options.check=void => Boolean] 			A function with the job reponse argument to verify whether the job response is expected or not (throw an error if not)
  *
  * @return {Promise<Result>} 						A promise that contains job data when fulfilled
  */
