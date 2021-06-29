@@ -5,9 +5,9 @@ let count = 0;
 const fakeJobThatDoneAfter5Tries = async () => {
 	await wait(2000);
 	count += 1;
-	if (count < 3) {
+	if (count < 4) {
 		throw new Error('Job failed!');
-	} else if (count < 5) {
+	} else if (count < 6) {
 		return false
 	} else {
 		console.log('Job done!');
@@ -17,7 +17,7 @@ const fakeJobThatDoneAfter5Tries = async () => {
 
 /////////////////////////// TEST
 (async () => {
-	console.log(`/********/ \nTesting a job that need 2s for each run, return unexpect data after 3 tries and success after 5 tries \n/********/`);
+	console.log(`/********/ \nTesting a job that need 2s for each run, return unexpect data after 4 tries and success after 6 tries \n/********/`);
 
 	console.log("\nTest 1 (10 tries max)..");
 	console.time("TEST_1_TIME");
@@ -30,7 +30,7 @@ const fakeJobThatDoneAfter5Tries = async () => {
 		startAfter: 0
 	});
 	console.log("\nJob result: ", result1);
-	console.log("Time expect: 0 + 2*5 + 1*(5-1) = 14s");
+	console.log("Time expect: 0 + 2*6 + 1*(6-1) = 17s");
 	console.timeEnd("TEST_1_TIME");
 
 	count = 0 // Reset count
