@@ -29,7 +29,7 @@ module.exports = async function retry(asyncJob, options) {
 		await wait(startAfter)
 
 		let tries = 0
-		const fn = async () => {
+		async function fn() {
 			try {
 				tries += 1
 				process?.(tries)
