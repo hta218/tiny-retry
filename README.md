@@ -1,6 +1,6 @@
 # Tiny retry JS 👷
 
-![size](https://img.badgesize.io/hta218/tiny-retry/main/dist/retry.js?compression=gzip&label=npm)
+![size](https://img.badgesize.io/hta218/tiny-retry/main/dist/retry.js?compression=gzip&label=npm) ![npm](https://img.shields.io/npm/dt/tiny-retry) ![GitHub package.json version](https://img.shields.io/github/package-json/v/hta218/tiny-retry?color=green) ![GitHub](https://img.shields.io/github/license/hta218/tiny-retry)
 
 A lightweight function (**~0.5kb** ✨) that retry an async job until the job success or stop after a maximum number of tries
 
@@ -40,15 +40,18 @@ const result = await retry(asyncJob, { maxTries, delay, startAfter, process, err
 - `asyncJob` [Function]: async function that throw an `Error` if failed
 - `options` [Object]: Retry options
   - `options.maxTries` [Number]: number of maximum time to try to run job
-  - `delay` [Number]: the number in miliseconds of time after between each tries
-  - `starAfter` [Number]: the number in miliseconds to start the 1st try
-  - `process` [Function]: A process function to run before each try with the `tries` count argument
-  - `errorHandler` [Function]: A function to handle error in each try with the `err` argument
-  - `check` [Function]: A function with the job reponse argument to verify whether the job response is expected or not (throw an `Error` if not)
+  - `options.delay` [Number]: the number in miliseconds of time after between each tries
+  - `options.starAfter` [Number]: the number in miliseconds to start the 1st try
+  - `options.process` [Function]: A process function to run before each try with the `tries` count argument
+  - `options.errorHandler` [Function]: A function to handle error in each try with the `err` argument
+  - `options.check` [Function]: A function with the job reponse argument to verify whether the job response is expected or not (throw an `Error` if not)
 
 ## Return value
 
-- `result`: Object - represent the value of the job done or not and include job's data (if job return)
+- `result` [Object]: Represent the value of the job done or not and include job's data (if job return)
+  - `result.success` [Boolean]: Whether the job success or not
+  - `result.tries` [Number]: Number of tries
+  - `result.[data]` [Number]: The return value of job if success
 
 ```javascript
 console.log(result)
