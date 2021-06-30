@@ -2,7 +2,7 @@ const retry = require('../dist/retry')
 const wait = require('./wait')
 
 let count = 0;
-const fakeJobThatDoneAfter5Tries = async () => {
+const fakeJobThatDoneAfter6Tries = async () => {
 	await wait(2000);
 	count += 1;
 	if (count < 4) {
@@ -19,9 +19,9 @@ const fakeJobThatDoneAfter5Tries = async () => {
 (async () => {
 	console.log(`/********/ \nTesting a job that need 2s for each run, return unexpect data after 4 tries and success after 6 tries \n/********/`);
 
-	console.log("\nTest 1 (10 tries max)..");
+	console.log("\nTest 1 (10 tries max)...");
 	console.time("TEST_1_TIME");
-	const result1 = await retry(fakeJobThatDoneAfter5Tries, {
+	const result1 = await retry(fakeJobThatDoneAfter6Tries, {
 		process: (tries) => console.log(`[TRY]: ${tries} time(s)`),
 		errorHandler: (err) => console.log(err.toString()),
 		check: Boolean,
@@ -37,7 +37,7 @@ const fakeJobThatDoneAfter5Tries = async () => {
 	console.log("\n****************************");
 	console.log("Test 2 (3 tries max)...");
 	console.time("TEST_2_TIME");
-	const result2 = await retry(fakeJobThatDoneAfter5Tries, {
+	const result2 = await retry(fakeJobThatDoneAfter6Tries, {
 		process: (tries) => console.log(`[TRY]: ${tries} time(s)`),
 		errorHandler: (err) => console.log(err.toString()),
 		maxTries: 3,

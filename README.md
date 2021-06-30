@@ -55,7 +55,7 @@ console.log(result)
 
 ## Example
 
-[Codesandbox demo](https://codesandbox.io/s/test-tiny-retry-pjbqs?file=/src/index.js:0-1198)
+[Codesandbox Example](https://codesandbox.io/s/test-tiny-retry-pjbqs?file=/src/index.js:0-1198)
 
 ```javascript
 import retry from "tiny-retry";
