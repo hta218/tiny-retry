@@ -4,7 +4,7 @@
 
 A lightweight function (**~0.5kb** ✨) that retry an async job until the job success or stop after a maximum number of tries
 
-![package size](https://i.imgur.com/sOdcMX8.png)
+![package size](https://i.imgur.com/kPMgkMm.png)
 
 ## Usage
 
