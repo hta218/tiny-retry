@@ -2,9 +2,9 @@
 
 ![size](https://img.badgesize.io/hta218/tiny-retry/main/dist/retry.js?compression=gzip&label=npm)
 
-A lightweight function (**~0.4kb** ✨) that retry an async job until the job success or stop after a maximum number of tries
+A lightweight function (**~0.5kb** ✨) that retry an async job until the job success or stop after a maximum number of tries
 
-![package size](https://i.imgur.com/bvJgy4D.png)
+![package size](https://i.imgur.com/sOdcMX8.png)
 
 ## Usage
 
