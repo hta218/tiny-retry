@@ -1,6 +1,6 @@
 # Tiny retry JS 👷
 
-![size](https://img.badgesize.io/hta218/tiny-retry/main/dist/retry.js?compression=gzip&label=npm) ![npm](https://img.shields.io/npm/dt/tiny-retry) ![GitHub package.json version](https://img.shields.io/github/package-json/v/hta218/tiny-retry?color=green) ![GitHub](https://img.shields.io/github/license/hta218/tiny-retry)
+![npm](https://img.shields.io/npm/v/tiny-retry?color=green) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/tiny-retry) ![npm](https://img.shields.io/npm/dt/tiny-retry) ![GitHub](https://img.shields.io/github/license/hta218/tiny-retry)
 
 A lightweight function (**~0.5kb** ✨) that retry an async job until the job success or stop after a maximum number of tries
 
