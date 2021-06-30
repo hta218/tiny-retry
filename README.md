@@ -2,7 +2,7 @@
 
 ![size](https://img.badgesize.io/hta218/tiny-retry/main/dist/retry.js?compression=gzip&label=npm)
 
-A lightweight function (**~0.4kb** ✨) that retry an async job until the job success or stop after a maximum number of retries
+A lightweight function (**~0.4kb** ✨) that retry an async job until the job success or stop after a maximum number of tries
 
 ![package size](https://i.imgur.com/bvJgy4D.png)
 
@@ -21,7 +21,7 @@ A lightweight function (**~0.4kb** ✨) that retry an async job until the job su
 	import retry from "tiny-retry";
 
 	// Async context
-	const result = await retry(asyncJob, maxRetries, delay, starAfter);
+	const result = await retry(asyncJob, options);
 
 	if (result.success) {
 		// Do something with job data
@@ -34,13 +34,17 @@ A lightweight function (**~0.4kb** ✨) that retry an async job until the job su
 ## Parameters
 
 ```javascript
-const result = await retry(asyncJob, maxRetries, delay, starAfter);
+const result = await retry(asyncJob, { maxTries, delay, startAfter, process, errorHandler, check });
 ```
 
-- `asyncJob`: async function that throw an `Error` if failed
-- `maxRetries`: number of maximum time to try to run job
-- `delay`: the number in miliseconds of time after between each retries
-- `starAfter`: the number in miliseconds to start the 1st try
+- `asyncJob` [Function]: async function that throw an `Error` if failed
+- `options` [Object]: Retry options
+  - `options.maxTries` [Number]: number of maximum time to try to run job
+  - `delay` [Number]: the number in miliseconds of time after between each tries
+  - `starAfter` [Number]: the number in miliseconds to start the 1st try
+  - `process` [Function]: A process function to run before each try with the `tries` count argument
+  - `errorHandler` [Function]: A function to handle error in each try with the `err` argument
+  - `check` [Function]: A function with the job reponse argument to verify whether the job response is expected or not (throw an `Error` if not)
 
 ## Return value
 
@@ -49,8 +53,8 @@ const result = await retry(asyncJob, maxRetries, delay, starAfter);
 ```javascript
 console.log(result)
 
-// Expect: { success: true, data: "Async job data", retryCount }
-// If job failed: { success: false, retryCount }
+// Expect: { success: true, data: "Async job data", tries }
+// If job failed: { success: false, tries }
 ```
 
 ## Example
@@ -62,25 +66,34 @@ import retry from "tiny-retry";
 
 const wait = (secs) => new Promise((resolve) => setTimeout(resolve, secs));
 
-let count = 1;
-const fakeJobThatDoneAfter5Tries = async () => {
-  await wait(2000);
-  if (count >= 5) {
-    console.log("Job done!");
-    return "Job data";
-  } else {
-    count += 1;
-    throw new Error("Job failed!");
-  }
+let count = 0;
+const fakeJobThatDoneAfter6Tries = async () => {
+	await wait(2000);
+	count += 1;
+	if (count < 4) {
+		throw new Error('Job failed!');
+	} else if (count < 6) {
+		return false
+	} else {
+		console.log('Job done!');
+		return "Job data"
+	}
 };
 
 (async () => {
-  console.log("Start Job 1");
-  console.time("JOB_COST");
-  const result1 = await retry(fakeJobThatDoneAfter5Tries, 8, 1000, 1000);
-  console.log("Job 1 result: ", result1);
-  console.log("Time expect: 1 + 2 * 5 + 1 * (5 - 1) = 15s");
-  console.timeEnd("JOB_COST"); // Expect: 15s
+	console.log("Start Job");
+	console.time("JOB_COST");
+	const result = await retry(fakeJobThatDoneAfter6Tries, {
+		process: (tries) => console.log(`[TRY]: ${tries} time(s)`),
+		errorHandler: (err) => console.log(err.toString()),
+		check: Boolean,
+		maxTries: 10,
+		delay: 1000,
+		startAfter: 0
+	});
+	console.log("Job result: ", result);
+	console.log("Time expect: 0 + 2*6 + 1*(6-1) = 17s");
+	console.timeEnd("JOB_COST"); // Expect 17s
 })();
 
 ```
