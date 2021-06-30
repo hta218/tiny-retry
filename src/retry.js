@@ -32,14 +32,14 @@ module.exports = async function retry(asyncJob, options) {
 		async function fn() {
 			try {
 				tries += 1
-				process?.(tries)
+				if (typeof process === "function") process(tries)
 
 				const data = await asyncJob()
-				if (typeof check === "function" && !check?.(data)) throw new Error("Unexpected data")
+				if (typeof check === "function" && !check(data)) throw new Error("Unexpected data")
 
 				resolve({ success: true, tries, data })
 			} catch (err) {
-				errorHandler?.(err)
+				if (typeof errorHandler === "function") errorHandler(err)
 				if (tries >= maxTries) {
 					resolve({ success: false, tries })
 				} else {
