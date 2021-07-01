@@ -51,7 +51,7 @@ const result = await retry(asyncJob, { maxTries, delay, startAfter, process, err
 - `result` [Object]: Represent the value of the job done or not and include job's data (if job return)
   - `result.success` [Boolean]: Whether the job success or not
   - `result.tries` [Number]: Number of tries
-  - `result.[data]` [Number]: The return value of job if success
+  - `[result.data]` [Number]: The return value of job if success
 
 ```javascript
 console.log(result)
