@@ -4,7 +4,7 @@ const wait = require('./wait')
  * @typedef Result
  * @property {Boolean}		success					True/false - whether the job done or not
  * @property {Object}		[data]					The return data from async job if the job success (If not, there will be no data in the result object)
-* @property {Number}		[tries]					Number of tries
+ * @property {Number}		[tries]					Number of tries
  */
 
 /**
