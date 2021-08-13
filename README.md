@@ -62,7 +62,7 @@ console.log(result)
 
 ## Example
 
-[Codesandbox Example](https://codesandbox.io/s/test-tiny-retry-pjbqs?file=/src/index.js:0-1198)
+[![Edit codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/test-tiny-retry-pjbqs?file=/src/index.js:0-1198)
 
 ```javascript
 import retry from "tiny-retry";
@@ -102,5 +102,7 @@ const fakeJobThatDoneAfter6Tries = async () => {
 ```
 
 ## License
+
+Bundled by me from the ideas' combination of me and my friend.
 
 Copyright (c) 2021 Leo Huynh @ [https://leohuynh.dev](https://leohuynh.dev) under [MIT LICENSE](/LICENSE.md)
