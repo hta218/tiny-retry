@@ -1,11 +1,11 @@
-# Tiny retry JS 👷
+# Tiny `retry` ✨
 
 [![npm](https://img.shields.io/npm/v/tiny-retry?color=green)](https://www.npmjs.com/package/tiny-retry) 
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/tiny-retry)](https://www.npmjs.com/package/tiny-retry)
 [![npm](https://img.shields.io/npm/dt/tiny-retry)](https://www.npmjs.com/package/tiny-retry)
 ![GitHub](https://img.shields.io/github/license/hta218/tiny-retry)
 
-A lightweight [module](https://www.npmjs.com/package/tiny-retry) (**~0.5kb** ✨) to retry an async job until the job success or stop after a maximum number of tries
+A lightweight [module](https://www.npmjs.com/package/tiny-retry) (**~0.5kb**) to retry an async job until the job success or stop after a maximum number of tries
 
 ![package size](https://i.imgur.com/kPMgkMm.png)
 
