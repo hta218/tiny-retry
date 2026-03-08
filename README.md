@@ -6,18 +6,11 @@ Personal configuration files for macOS development environment.
 
 ```
 .
-├── zsh/            # Shell configuration
-├── vscode/         # VS Code settings
-├── claude/         # Claude Code settings
-├── opencode/       # Opencode settings
-├── scripts/        # Setup scripts
-└── .editorconfig   # Editor formatting defaults
+├── .zshrc           # Zsh shell configuration
+├── .vscode/         # VS Code settings
+├── .claude/         # Claude Code settings
+├── .opencode/       # Opencode settings and agent rules
+└── .editorconfig    # Editor formatting defaults
 ```
 
-## Installation
-
-Run the install script to symlink all configs:
-
-```bash
-./scripts/install.sh
-```
+> **Note:** Dot files and dot folders are hidden by default on macOS. Press `Cmd + Shift + .` in Finder to toggle their visibility.
