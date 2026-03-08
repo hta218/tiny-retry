@@ -1,0 +1,29 @@
+{
+	"version": 1,
+	"hooks": {
+		"sessionEnd": [
+			{
+				"type": "command",
+				"bash": "$HOME/.copilot/copilot-cli-notifier.sh",
+				"powershell": "$HOME/.copilot/copilot-cli-notifier.sh",
+				"comment": "Show notification when response completes"
+			}
+		],
+		"preToolUse": [
+			{
+				"type": "command",
+				"bash": "$HOME/.copilot/copilot-cli-notifier.sh",
+				"powershell": "$HOME/.copilot/copilot-cli-notifier.sh",
+				"comment": "Show notification when Copilot requests permission to use tools"
+			}
+		],
+		"errorOccurred": [
+			{
+				"type": "command",
+				"bash": "$HOME/.copilot/copilot-cli-notifier.sh",
+				"powershell": "$HOME/.copilot/copilot-cli-notifier.sh",
+				"comment": "Show notification when errors occur"
+			}
+		]
+	}
+}
