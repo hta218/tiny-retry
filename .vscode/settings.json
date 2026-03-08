@@ -1,6 +1,5 @@
 {
 	"editor.fontFamily": "Monaco, Geist Mono, Input Mono, JetBrains Mono, 'Courier New', monospace",
-	"prettier.useTabs": false,
 	"editor.autoIndent": "full",
 	"editor.tabSize": 2,
 	"terminal.integrated.fontSize": 15,
@@ -9,7 +8,7 @@
 		"file:///${userHome}/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
 	},
 	"git.autofetch": true,
-	"javascript.updateImportsOnFileMove.enabled": "always",
+	"js/ts.updateImportsOnFileMove.enabled": "always",
 	"editor.wordSeparators": "`~!@#%^&*=()+[{]}\\|;:'\",.<>/?",
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"redhat.telemetry.enabled": false,
@@ -20,7 +19,6 @@
 	"turboConsoleLog.delimiterInsideMessage": "-",
 	"debug.console.fontSize": 16,
 	"editor.defaultFormatter": "biomejs.biome",
-	"typescript.updateImportsOnFileMove.enabled": "always",
 	"editor.inlineSuggest.enabled": true,
 	"editor.bracketPairColorization.enabled": true,
 	"editor.guides.bracketPairsHorizontal": false,
@@ -112,9 +110,8 @@
 	"[ignore]": {
 		"editor.defaultFormatter": "foxundermoon.shell-format"
 	},
-	"window.confirmBeforeClose": "keyboardOnly",
 	"cSpell.userWords": [],
-	"typescript.tsserver.log": "off",
+	"js/ts.tsserver.log": "off",
 	"window.autoDetectColorScheme": true,
 	"[javascript]": {
 		"editor.defaultFormatter": "biomejs.biome"
@@ -124,10 +121,9 @@
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"github.copilot.editor.enableCodeActions": false,
-	"supermaven.otherWarning": false,
 	"git.openRepositoryInParentFolders": "never",
 	"[markdown]": {
-		"editor.defaultFormatter": "yzhang.markdown-all-in-one"
+		"editor.defaultFormatter": "vscode.markdown-language-features"
 	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll.biome": "explicit",
@@ -136,7 +132,6 @@
 	"[mdx]": {
 		"editor.defaultFormatter": "unifiedjs.vscode-mdx"
 	},
-	"security.workspace.trust.untrustedFiles": "open",
 	"github.copilot.nextEditSuggestions.enabled": true,
 	"database-client.autoSync": true,
 	"github.copilot.chat.commitMessageGeneration.instructions": [
@@ -177,7 +172,6 @@
 	"[github-actions-workflow]": {
 		"editor.defaultFormatter": "redhat.vscode-yaml"
 	},
-	"security.promptForLocalFileProtocolHandling": false,
 	"chat.tools.terminal.autoApprove": {
 		"/^pnpm fix$/": {
 			"approve": true,
@@ -188,7 +182,6 @@
 	"workbench.iconTheme": "vscode-icons",
 	"terminal.integrated.initialHint": false,
 	"git.replaceTagsWhenPull": true,
-	"claudeCode.preferredLocation": "panel",
 	"[html]": {
 		"editor.defaultFormatter": "vscode.html-language-features"
 	},
