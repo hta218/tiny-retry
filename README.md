@@ -14,3 +14,8 @@ Personal configuration files for macOS development environment.
 ```
 
 > **Note:** Dot files and dot folders are hidden by default on macOS. Press `Cmd + Shift + .` in Finder to toggle their visibility.
+
+
+## Installation
+
+Make sure to update paths, API keys, and any other placeholders in the configuration files to match your environment.
