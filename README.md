@@ -9,11 +9,12 @@ Personal configuration files for macOS development environment.
 
 ```
 .
-├── .zshrc           # Zsh shell configuration
-├── .vscode/         # VS Code settings
 ├── .claude/         # Claude Code settings
+├── .copilot/        # Copilot settings
 ├── .opencode/       # Opencode settings and agent rules
-└── .editorconfig    # Editor formatting defaults
+├── .vscode/         # VS Code settings
+├── .zshrc           # Zsh shell configuration
+└── .editorconfig     # Editor formatting defaults
 ```
 
 > **Note:** Dot files and dot folders are hidden by default on macOS. Press `Cmd + Shift + .` in Finder to toggle their visibility.
