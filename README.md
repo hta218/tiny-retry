@@ -2,6 +2,9 @@
 
 Personal configuration files for macOS development environment.
 
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/d75b7070-2356-493b-a40a-4d17a44e55f7" />
+
+
 ## Structure
 
 ```
