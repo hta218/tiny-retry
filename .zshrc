@@ -105,13 +105,13 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Added by Windsurf
-export PATH="/Users/hta218/.codeium/windsurf/bin:$PATH"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
 # Added by Antigravity
-export PATH="/Users/hta218/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 zai() {
@@ -120,5 +120,5 @@ zai() {
   claude "$@"
 }
 # opencode
-export PATH=/Users/hta218/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
 alias oc='opencode'

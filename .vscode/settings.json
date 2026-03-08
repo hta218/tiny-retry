@@ -1,0 +1,206 @@
+{
+	"editor.fontFamily": "Monaco, Geist Mono, Input Mono, JetBrains Mono, 'Courier New', monospace",
+	"prettier.useTabs": false,
+	"editor.autoIndent": "full",
+	"editor.tabSize": 2,
+	"terminal.integrated.fontSize": 15,
+	"editor.fontSize": 16,
+	"yaml.schemas": {
+		"file:///${userHome}/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+	},
+	"git.autofetch": true,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"editor.wordSeparators": "`~!@#%^&*=()+[{]}\\|;:'\",.<>/?",
+	"editor.suggest.snippetsPreventQuickSuggestions": false,
+	"redhat.telemetry.enabled": false,
+	"scss.validate": false,
+	"turboConsoleLog.logMessagePrefix": "👉 -------->",
+	"turboConsoleLog.insertEnclosingClass": false,
+	"turboConsoleLog.insertEnclosingFunction": false,
+	"turboConsoleLog.delimiterInsideMessage": "-",
+	"debug.console.fontSize": 16,
+	"editor.defaultFormatter": "biomejs.biome",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"editor.inlineSuggest.enabled": true,
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketPairsHorizontal": false,
+	"[shellscript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"editor.unicodeHighlight.allowedCharacters": {
+		"️": true
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": true,
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"turboConsoleLog.quote": "'",
+	"git.suggestSmartCommit": false,
+	"editor.fontLigatures": true,
+	"workbench.fontAliasing": "auto",
+	"editor.fontWeight": "normal",
+	"git.inputValidationSubjectLength": 100,
+	"git.inputValidationLength": 100,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"tailwindCSS.classAttributes": [
+		"class",
+		"className",
+		"ngClass",
+		"headerClass",
+		"triggerClass",
+		"cls",
+		"wrapperClass",
+		"containerClassName",
+		".*ClassName",
+		".*Class",
+		"classDialog",
+		"bulletClass"
+	],
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"']([^\"']).?[\"'`]"],
+		["cx\\(([^)]*)\\)", "(?:'|\"|)([^']*)(?:'|\"|)"]
+	],
+	"github.copilot.enable": {
+		"*": true,
+		"plaintext": true,
+		"markdown": true,
+		"scminput": false,
+		"yaml": false
+	},
+	"files.associations": {
+		"*.liquid": "liquid",
+		"*.css": "tailwindcss"
+	},
+	"[liquid]": {
+		"editor.formatOnSave": false
+	},
+	"files.autoSaveDelay": 100,
+	"git.confirmSync": false,
+	"tailwindCSS.includeLanguages": {
+		"plaintext": "html"
+	},
+	"editor.formatOnSave": true,
+	"[dotenv]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[svg]": {
+		"editor.defaultFormatter": "jock.svg"
+	},
+	"workbench.preferredLightColorTheme": "Solarized Light",
+	"[properties]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[ignore]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"window.confirmBeforeClose": "keyboardOnly",
+	"cSpell.userWords": [],
+	"typescript.tsserver.log": "off",
+	"window.autoDetectColorScheme": true,
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"workbench.colorTheme": "Solarized Light",
+	"[tailwindcss]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"github.copilot.editor.enableCodeActions": false,
+	"supermaven.otherWarning": false,
+	"git.openRepositoryInParentFolders": "never",
+	"[markdown]": {
+		"editor.defaultFormatter": "yzhang.markdown-all-in-one"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.biome": "explicit",
+		"source.organizeImports.biome": "explicit"
+	},
+	"[mdx]": {
+		"editor.defaultFormatter": "unifiedjs.vscode-mdx"
+	},
+	"security.workspace.trust.untrustedFiles": "open",
+	"github.copilot.nextEditSuggestions.enabled": true,
+	"database-client.autoSync": true,
+	"github.copilot.chat.commitMessageGeneration.instructions": [
+		{
+			"file": ".github/instructions/commit-message.instructions.md"
+		}
+	],
+	"vsicons.dontShowNewVersionMessage": true,
+	"tailwindCSS.experimental.configFile": null,
+	"chat.mcp.discovery.enabled": {
+		"claude-desktop": true,
+		"windsurf": true,
+		"cursor-global": true,
+		"cursor-workspace": true
+	},
+	"cSpell.ignorePaths": [
+		"package-lock.json",
+		"node_modules",
+		"vscode-extension",
+		".git/{info,lfs,logs,refs,objects}/**",
+		".git/{index,*refs,*HEAD}",
+		".vscode",
+		".vscode-insiders",
+		".env.example",
+		"*.json"
+	],
+	"turboConsoleLog.includeFilename": true,
+	"chat.editor.fontSize": 14,
+	"extensions.ignoreRecommendations": true,
+	"diffEditor.renderSideBySide": true,
+	"chat.agent.maxRequests": 100,
+	"[dockercompose]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.autoIndent": "advanced",
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	},
+	"[github-actions-workflow]": {
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	},
+	"security.promptForLocalFileProtocolHandling": false,
+	"chat.tools.terminal.autoApprove": {
+		"/^pnpm fix$/": {
+			"approve": true,
+			"matchCommandLine": true
+		}
+	},
+	"chat.viewSessions.orientation": "stacked",
+	"workbench.iconTheme": "vscode-icons",
+	"terminal.integrated.initialHint": false,
+	"git.replaceTagsWhenPull": true,
+	"claudeCode.preferredLocation": "panel",
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"json.schemaDownload.trustedDomains": {
+		"https://schemastore.azurewebsites.net/": true,
+		"https://raw.githubusercontent.com/microsoft/vscode/": true,
+		"https://raw.githubusercontent.com/devcontainers/spec/": true,
+		"https://www.schemastore.org/": true,
+		"https://json.schemastore.org/": true,
+		"https://json-schema.org/": true,
+		"https://developer.microsoft.com/json-schemas/": true,
+		"https://opencode.ai": true,
+		"https://models.dev": true
+	}
+}
