@@ -6,11 +6,12 @@ Personal configuration files for macOS development environment.
 
 ```
 .
-├── zsh/          # Shell configuration
-├── vscode/       # VS Code settings
-├── claude/       # Claude Code settings  
-├── opencode/     # Opencode settings
-└── scripts/      # Setup scripts
+├── zsh/            # Shell configuration
+├── vscode/         # VS Code settings
+├── claude/         # Claude Code settings
+├── opencode/       # Opencode settings
+├── scripts/        # Setup scripts
+└── .editorconfig   # Editor formatting defaults
 ```
 
 ## Installation
