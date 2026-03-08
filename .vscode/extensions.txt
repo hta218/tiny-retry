@@ -21,7 +21,6 @@ mrmlnc.vscode-duplicate
 ms-vscode.live-server
 prisma.prisma
 redhat.vscode-yaml
-sst-dev.opencode
 streetsidesoftware.code-spell-checker
 techer.open-in-browser
 unifiedjs.vscode-mdx
