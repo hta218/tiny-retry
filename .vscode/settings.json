@@ -142,11 +142,11 @@
 	"vsicons.dontShowNewVersionMessage": true,
 	"tailwindCSS.experimental.configFile": null,
 	"chat.mcp.discovery.enabled": {
-		"claude-desktop": true,
-		"windsurf": true,
-		"cursor-global": true,
-		"cursor-workspace": true
-	},
+    "claude-desktop": true,
+    "windsurf": true,
+    "cursor-global": true,
+    "cursor-workspace": true
+  },
 	"cSpell.ignorePaths": [
 		"package-lock.json",
 		"node_modules",
