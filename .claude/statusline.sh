@@ -13,6 +13,14 @@ MODEL=$(echo "$MODEL_RAW" \
   | sed 's/\[/ [/' \
   | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2); print}')
 
+# Emoji prefix per model
+MODEL_LOWER=$(echo "$MODEL" | tr '[:upper:]' '[:lower:]')
+case "$MODEL_LOWER" in
+  *opus*)   MODEL="🧠 ${MODEL}" ;;
+  *sonnet*) MODEL="⚡ ${MODEL}" ;;
+  *haiku*)  MODEL="🪶 ${MODEL}" ;;
+esac
+
 # Colors for light background
 BLACK='\033[30m'
 DARK_GRAY='\033[90m'
