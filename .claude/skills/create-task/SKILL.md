@@ -1,22 +1,18 @@
 ---
 name: create-task
-description: "Create a GitHub issue, add it to a project, and set all metadata (status, priority, labels, milestone, type). Use when user wants to create a new task/issue."
-argument-hint: "[task description or requirements]"
-allowed-tools: "Bash, AskUserQuestion"
+description: "Create a GitHub issue with project board integration"
 ---
 
-Create a new GitHub issue with full project board integration.
+Create a GitHub issue with full metadata and optional project board integration.
 
-## Workflow
+## Usage
 
-Follow these steps **in order**. Use `AskUserQuestion` (the `mcp_question` tool) to gather all required info before creating anything.
+- `create-task` - Interactive guided issue creation
+- `create-task Add dark mode support` - Pre-fill the title/description from arguments
 
-## Question Rules
+## Process
 
-- For **free-text** fields like title, description, and content style instructions, do **not** create fake selectable options such as `Type title/description` or `Enter description`.
-- For those free-text prompts, use `AskUserQuestion` with an empty options list and rely on the tool's built-in custom input only.
-- If `$ARGUMENTS` already includes a usable draft title and/or description, pre-fill from it and only ask follow-up questions for any missing or unclear parts.
-- Do not ask the same title or description question twice.
+Follow these steps **in order**. Ask the user to gather all required info before creating anything.
 
 ### Step 1: Detect the GitHub owner
 
@@ -35,9 +31,7 @@ Store this as `<owner>` for all subsequent commands.
 
 Fetch the list of projects dynamically:
 
-```bash
 gh project list --owner <owner> --format json --jq '.projects[] | "\(.number) \(.title)"'
-```
 
 Then ask the user to select a project. Include a "None (no project)" option.
 
@@ -46,22 +40,18 @@ Then ask the user to select a project. Include a "None (no project)" option.
 Ask these in a single question block if possible:
 
 1. **Repository** - List repos from the owner. Run:
-   ```bash
    gh repo list <owner> --json name --jq '.[].name' --limit 50
-   ```
    Let user select one.
 
-2. **Title** - Ask for the issue title as a free-text response only. Do not show a selectable placeholder option.
+2. **Title** - Ask for the issue title (free text).
 
 3. **Assignee** - Fetch collaborators/members dynamically:
-   ```bash
    gh api repos/<owner>/<repo>/collaborators --jq '.[].login'
-   ```
    Let user select from the list. Allow multiple selections. Include an "Unassigned" option.
 
-4. **Description/Body** - Ask for the issue body content as a free-text response only. Do not show a selectable placeholder option. If user provides `$ARGUMENTS`, pre-fill from that and only ask for anything still missing. This is the **raw/brief** content that will be enhanced in the next step.
+4. **Description/Body** - Ask for the issue body content (free text). If user provides `$ARGUMENTS`, pre-fill from that. This is the **raw/brief** content that will be enhanced in the next step.
 
-5. **Content Style Instructions** - Ask the user for custom guidelines on how to rewrite/enhance the description as a free-text response only. Do not show a selectable placeholder option. Examples:
+5. **Content Style Instructions** - Ask the user for custom guidelines on how to rewrite/enhance the description (free text). Examples:
    - "use checkboxes for action items"
    - "use simple english"
    - "no emojis"
@@ -84,9 +74,7 @@ The raw description from Step 3 is just a brief/rough input. Before creating the
 
 If a project was selected in Step 2, fetch the project's fields:
 
-```bash
 gh project field-list <PROJECT_NUMBER> --owner <owner> --format json
-```
 
 Then ask the user to set:
 
@@ -95,26 +83,19 @@ Then ask the user to set:
 2. **Priority** - Show available priority options if the project has a Priority field (e.g., High, Medium, Low). Include a "None" option.
 
 3. **Labels** - Fetch labels from the selected repo:
-   ```bash
    gh label list --repo <owner>/<repo> --json name --jq '.[].name'
-   ```
    Let user select multiple. Include a "None" option.
 
 4. **Milestone** - Fetch milestones from the selected repo:
-   ```bash
    gh api repos/<owner>/<repo>/milestones --jq '.[].title'
-   ```
    Let user select one. Include a "None" option.
 
 5. **Issue Type** - Fetch issue types from the repo:
-   ```bash
    gh api graphql -f query='{ repository(owner: "<owner>", name: "<repo>") { issueTypes(first: 20) { nodes { id name } } } }'
-   ```
    Let user select one (e.g., Task, Bug, Feature). Include a "None" option.
 
 ### Step 6: Create the issue
 
-```bash
 gh issue create \
   --repo <owner>/<repo> \
   --title "<title>" \
@@ -122,65 +103,47 @@ gh issue create \
   --assignee "<assignee1>,<assignee2>" \
   --label "<label1>,<label2>" \
   --milestone "<milestone>"
-```
 
 Use a heredoc for the body to preserve formatting. Use the **enhanced description** from Step 4 (not the raw input from Step 3):
-```bash
 gh issue create --repo <owner>/<repo> --title "<title>" --assignee "<assignees>" --body "$(cat <<'EOF'
 <body content>
 EOF
 )"
-```
 
 Omit `--assignee`, `--label`, `--milestone` flags if the user selected "None" for those.
 
 ### Step 7: Set issue type (if selected)
 
 Get the issue node ID:
-```bash
 gh api repos/<owner>/<repo>/issues/<number> --jq '.node_id'
-```
 
 Then set the type:
-```bash
 gh api graphql -f query='mutation { updateIssueIssueType(input: { issueId: "<issue_node_id>", issueTypeId: "<type_id>"}) { issue { id } } }'
-```
 
 ### Step 8: Add to project and set project fields
 
 If a project was selected:
 
 1. Add the issue to the project:
-   ```bash
    gh project item-add <PROJECT_NUMBER> --owner <owner> --url <issue_url> --format json
-   ```
    This returns the item ID.
 
 2. Parse the GraphQL item ID from the JSON output (field: `id`).
 
 3. Get the **numeric database ID** for the project board deep link:
-   ```bash
    gh api graphql -f query='query { node(id: "<GRAPHQL_ITEM_ID>") { ... on ProjectV2Item { databaseId } } }' --jq '.data.node.databaseId'
-   ```
    Save this numeric ID for the project board URL in Step 9.
 
 4. Set **Status** on the project item:
-   ```bash
    gh project item-edit \
      --id <ITEM_ID> \
      --project-id <PROJECT_ID> \
      --field-id <STATUS_FIELD_ID> \
      --single-select-option-id <STATUS_OPTION_ID>
-   ```
 
 5. Set **Priority** on the project item (if selected and field exists):
-   ```bash
-   gh project item-edit \
-     --id <ITEM_ID> \
-     --project-id <PROJECT_ID> \
      --field-id <PRIORITY_FIELD_ID> \
      --single-select-option-id <PRIORITY_OPTION_ID>
-   ```
 
 ### Step 9: Confirm
 
@@ -192,10 +155,14 @@ Output a summary of what was created:
 - Labels, Milestone, Type
 - Project, Status, Priority
 
+## Error Handling
+
+- If `gh` CLI is not installed or not authenticated, inform the user and stop
+- If any `gh` command fails, show the error to the user and ask how to proceed
+
 ## Important Notes
 
 - Always use `--format json` when you need to parse output from `gh` commands.
 - Use the project's internal IDs (from `field-list`) for `item-edit` commands, not display names.
-- If any `gh` command fails, show the error to the user and ask how to proceed.
 - The `--project` flag on `gh issue create` does NOT set project field values -- you must use `gh project item-add` + `gh project item-edit` separately.
 - For issue body, always use heredoc syntax to preserve multiline formatting.
