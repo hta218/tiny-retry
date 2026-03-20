@@ -1,4 +1,6 @@
 {
 	"$schema": "https://opencode.ai/config.json",
-	"instructions": ["~/.config/opencode/rules/*.md"]
+	"plugin": ["@mohak34/opencode-notifier@latest"],
+	"instructions": ["~/.config/opencode/rules/*.md"],
+	"autoupdate": true
 }
