@@ -23,6 +23,7 @@ argument-hint: "[optional commit message or instructions]"
 4. For each group, draft a commit message:
    - Write natural, concise descriptions of what changed and why
    - Do NOT use conventional commits format (no `feat:`, `fix:`, `chore:` prefixes)
+   - Do NOT add `Co-Authored-By` or any co-author trailers to commit messages
    - Keep the subject line under 72 characters
    - If the user provided a message or instructions via arguments, incorporate or use that for the relevant commit(s)
 
