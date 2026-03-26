@@ -1,4 +1,9 @@
 {
+	"instructions": ["~/.claude/rules/*.md"],
+	"statusLine": {
+		"type": "command",
+		"command": "~/.claude/statusline.sh"
+	},
 	"hooks": {
 		"Notification": [
 			{
