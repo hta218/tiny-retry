@@ -61,14 +61,21 @@ Ask these in a single question block if possible:
 
    This is a single free-text field where the user writes their style preferences.
 
-### Step 4: Enhance the description
+### Step 4: Enhance the title and description
 
-The raw description from Step 3 is just a brief/rough input. Before creating the issue, **rewrite and enhance** the description following the user's content style instructions.
+The raw title and description from Step 3 are just brief/rough inputs. Before creating the issue, **rewrite and enhance both** following best practices and the user's content style instructions.
 
+**Title:**
+- Fix any grammar errors, typos, or awkward phrasing
+- Make it concise, clear, and professional
+- Follow GitHub issue title conventions (imperative mood, descriptive but short)
+
+**Description:**
 - Use the raw description as the source material
 - Apply all the style guidelines the user provided
 - Produce a well-structured, clear, professional GitHub issue body
-- Do NOT ask the user for approval of the rewritten content -- just apply the instructions and proceed
+
+Do NOT ask the user for approval of the rewritten content -- just apply the enhancements and proceed.
 
 ### Step 5: Ask for metadata
 
