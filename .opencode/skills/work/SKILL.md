@@ -79,7 +79,7 @@ Present common options (e.g., `main`, `dev`) plus the list above. Let the user p
 
 ```bash
 git fetch origin <base-branch>
-git checkout -b <new-branch> origin/<base-branch>
+git checkout -b <new-branch> origin/<base-branch> --no-track
 ```
 
 ### Step 4: Generate the implementation plan

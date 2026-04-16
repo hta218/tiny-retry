@@ -30,7 +30,9 @@ Present the issues to the user and ask them to select one.
 
 ### Step 2: Fetch and display issue details
 
+```bash
 gh issue view <number> --json title,body,labels,assignees,milestone,state,url
+```
 
 Display a concise summary of the issue so the user understands what they are about to work on:
 - Title
@@ -68,13 +70,17 @@ Ask the user to confirm or customize the branch name.
 
 Then ask which branch to check out from:
 
+```bash
 # Show available remote branches for context
 git branch -r --list 'origin/*' --sort=-committerdate | head -10
+```
 
 Present common options (e.g., `main`, `dev`) plus the list above. Let the user pick or type a custom base branch.
 
+```bash
 git fetch origin <base-branch>
-git checkout -b <new-branch> origin/<base-branch>
+git checkout -b <new-branch> origin/<base-branch> --no-track
+```
 
 ### Step 4: Generate the implementation plan
 
@@ -118,9 +124,11 @@ After the plan is generated, ask the user:
 > "Spec and plan are ready. Should I commit and push them to remote?"
 
 If yes:
+```bash
 git add .specs/<folder>/
 git commit -m "Add spec and plan for #<issue-number>: <short-title>"
 git push -u origin <new-branch>
+```
 
 If no, skip to Step 6 (the spec stays as uncommitted local files).
 
@@ -130,11 +138,14 @@ Ask the user:
 
 > "Should I create a draft PR targeting `<base-branch>`?"
 
+If yes:
+```bash
 gh pr create \
   --base <base-branch> \
   --head <new-branch> \
   --title "<issue-title>" \
   --body "$(cat <<'EOF'
+## Summary
 
 Spec and implementation plan for #<issue-number>.
 
@@ -144,6 +155,7 @@ Closes #<issue-number>
 EOF
 )" \
   --draft
+```
 
 - Use `Closes #<number>` in the body to auto-link the PR to the issue.
 - Create as **draft** since no implementation code exists yet.
@@ -152,10 +164,13 @@ EOF
 
 First, assign the current user to the issue if not already assigned:
 
+```bash
 gh issue edit <number> --add-assignee @me
+```
 
 Then, if a PR was created, update the issue status on the project board (if the issue belongs to a project):
 
+```bash
 # Get project items for this issue
 gh api graphql -f query='
 {
@@ -170,14 +185,17 @@ gh api graphql -f query='
     }
   }
 }'
+```
 
 For each project the issue belongs to, find the "Status" field and set it to "In Progress" (or the closest matching option):
 
+```bash
 gh project item-edit \
   --id <ITEM_ID> \
   --project-id <PROJECT_ID> \
   --field-id <STATUS_FIELD_ID> \
   --single-select-option-id <IN_PROGRESS_OPTION_ID>
+```
 
 If the issue is not on any project board, skip this step silently.
 
@@ -185,6 +203,7 @@ If the issue is not on any project board, skip this step silently.
 
 Output a final summary of everything that was done:
 
+```
 Issue:    #<number> - <title>
 Branch:   <new-branch> (from <base-branch>)
 Spec:     .specs/<folder>/
@@ -192,6 +211,7 @@ Plan:     .specs/<folder>/plan.md
 PR:       <pr-url> (or "Not created")
 Assignee: @<username> (assigned)
 Status:   Updated to "In Progress" (or "No project board found")
+```
 
 ## Error Handling
 
