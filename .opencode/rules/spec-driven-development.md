@@ -14,6 +14,8 @@
 
 All specs live in a specs folder. The path can be configured in your project's `AGENTS.md` file (or similar project configuration). If not specified, the default location is `.specs/` at the project root.
 
+If no `.specs` folder exists at the project root and no path is specified in the agent file, search the project for an existing specs folder (e.g., `specs/`, `docs/specs/`, `.github/specs/`). If found, use that location; otherwise, create `.specs/` at the project root.
+
 **Configuration Example (in AGENTS.md):**
 ```markdown
 ## Spec-Driven Development (SDD) Directory
